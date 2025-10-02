@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "mcp-demo-server": {
+      "command": "C:/Source/mcpdemo/.venv/Scripts/python.exe",
+      "args": ["-m", "mcpdemo.server"],
+      "cwd": "C:/Source/mcpdemo",
+      "env": {}
+    },
+    "minimal-demo-server": {
+      "command": "C:\\Source\\mcpdemo\\.venv\\Scripts\\python.exe",
+      "args": ["examples\\minimal_server.py"],
+      "cwd": "C:\\Source\\mcpdemo",
+      "env": {}
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "mcp-demo-server": {
+      "command": "C:\\Users\\zee.zaffar\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\python.exe",
+      "args": [
+        "C:\\Source\\mcpdemo\\src\\mcpdemo\\server.py"
+      ],
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONLEGACYWINDOWSSTDIO": "1"
+      },
+      "cwd": "C:\\Source\\mcpdemo"
+    }
+  }
+}
