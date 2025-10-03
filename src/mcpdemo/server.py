@@ -2,7 +2,7 @@
 """
 FastMCP Demo Server
 
-A simple MCP server using FastMCP that provides basic file operations and utilities.
+A simple Zee MCP server using FastMCP that provides basic file operations and utilities.
 """
 
 import os
@@ -11,7 +11,7 @@ from pathlib import Path
 from fastmcp import FastMCP
 
 # Create the FastMCP server instance
-mcp = FastMCP("MCP Demo Server")
+mcp = FastMCP("Zee MCP Directory Server")
 
 @mcp.tool()
 def read_file(file_path: str) -> str:
