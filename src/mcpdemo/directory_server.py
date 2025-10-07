@@ -11,7 +11,7 @@ from pathlib import Path
 from fastmcp import FastMCP
 
 # Create the FastMCP server instance
-mcp = FastMCP("Zee MCP Directory Server")
+mcp = FastMCP("Zee Directory MCP Server")
 
 @mcp.tool()
 def read_file(file_path: str) -> str:
@@ -167,4 +167,11 @@ def echo(message: str) -> str:
     return f"Hello! You said: {message}"
 
 if __name__ == "__main__":
-   mcp.run()
+    import os
+    transport = os.getenv("TRANSPORT", "http")  # Default to streamable-http
+    port = int(os.getenv("PORT", "8002"))
+    
+    if transport == "http":
+        mcp.run(transport="http", port=port, host="0.0.0.0")
+    else:
+        mcp.run(transport="stdio")

@@ -1,6 +1,6 @@
 from mcp.server.fastmcp import FastMCP
 
-mcp=FastMCP("Zee Math Server")
+mcp=FastMCP("Zee Math MCP Server")
 
 @mcp.tool()
 def add_two_numbers(a: float, b: float) -> str: 
@@ -46,4 +46,11 @@ def multipy_two_numbers(a: float, b: float) -> str:
 
 
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    import os
+    transport = os.getenv("TRANSPORT", "http")  # Default to streamable-http
+    port = int(os.getenv("PORT", "8000"))
+    
+    if transport == "http":
+        mcp.run(transport="http", port=port, host="0.0.0.0")
+    else:
+        mcp.run(transport="stdio")
