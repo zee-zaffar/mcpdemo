@@ -1,21 +1,34 @@
 {
   "mcpServers": {
-    "mcp-demo-server": {
-      "command": "python",
-      "args": ["-m", "mcpdemo.server"],
-      "cwd": "C:\\Source\\mcpdemo",
+    "directory-mcp-server": {
+      "command": "C:\\Source\\mcpdemo\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m","mcpdemo.directory_server"
+      ],
       "env": {}
     },
-    "minimal-demo-server": {
-      "command": "python", 
-      "args": ["C:\\Source\\mcpdemo\\examples\\minimal_server.py"],
+	"weather-mcp-server": {
+      "command": "C:\\Source\\mcpdemo\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m","mcpdemo.weather_server"
+      ],
       "env": {}
     },
-    "wikipedia-mcp": {
+	  "math-mcp-server":{
+      "command": "C:\\Source\\mcpdemo\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m", "mcpdemo.math_server"
+      ],
+      "env": {}
+    },
+	"wikipedia-mcp-server": {
       "command": "C:\\Source\\mcpdemo\\.venv\\Scripts\\python.exe",
       "args": ["-m", "wikipedia_mcp", "--language", "en", "--enable-cache"],
       "cwd": "C:\\Source\\mcpdemo",
-      "env": {}
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONLEGACYWINDOWSSTDIO": "1"
+      }
     }
   }
 }

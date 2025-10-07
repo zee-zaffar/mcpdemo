@@ -1,0 +1,10 @@
+# Azure Developer CLI configuration for Weather MCP Server
+name: weather-mcp-server
+metadata:
+  template: weather-mcp-server@1.0.0
+services:
+  weather-server:
+    project: .
+    language: python
+    host: appservice
+    dist: src
