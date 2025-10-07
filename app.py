@@ -19,5 +19,14 @@ def get_weather(location: str) -> str:
     }
     return weather_data.get(location, "Location not found")
 
+# Export ASGI app for gunicorn
+asgi_app = app._server.create_asgi_app(transport="streamable-http")
+
 if __name__ == "__main__":
+    import os
+    
+    # Set environment variables for uvicorn host/port before running
+    os.environ["HOST"] = "0.0.0.0" 
+    os.environ["PORT"] = str(os.environ.get('PORT', 8000))
+    
     app.run(transport="streamable-http")
