@@ -1,7 +1,7 @@
 # Gunicorn configuration for Azure App Service
 import os
 
-# Server socket
+# Server socket - Azure provides PORT environment variable
 bind = f"0.0.0.0:{os.environ.get('PORT', 8000)}"
 
 # Worker processes
@@ -12,3 +12,7 @@ worker_class = "uvicorn.workers.UvicornWorker"
 loglevel = "info"
 accesslog = "-"
 errorlog = "-"
+
+# Timeout settings
+timeout = 120
+keepalive = 2
