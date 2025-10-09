@@ -21,6 +21,7 @@ env:
   AZURE_WEBAPP_NAME: app-math-zee
   AZURE_RESOURCE_GROUP: rg-test-zee
   PYTHON_VERSION: '3.11'
+  AZURE_PYTHON_VERSION: '3.11'
 
 jobs:
   build:
@@ -143,7 +144,7 @@ jobs:
               --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
               --plan plan-math-mcp \
               --name ${{ env.AZURE_WEBAPP_NAME }} \
-              --runtime "PYTHON:${{ env.PYTHON_VERSION }}"
+              --runtime "PYTHON:${{ env.AZURE_PYTHON_VERSION }}"
           else
             echo "✅ App Service already exists"
           fi
@@ -159,7 +160,6 @@ jobs:
             --settings \
               SCM_DO_BUILD_DURING_DEPLOYMENT=true \
               ENABLE_ORYX_BUILD=true \
-              PYTHON_VERSION=${{ env.PYTHON_VERSION }} \
               TRANSPORT=streamable-http
           
           # Set startup command
