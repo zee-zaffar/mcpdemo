@@ -1,0 +1,26 @@
+# Azure Developer CLI configuration for MCP Servers
+name: mcpdemo-servers
+metadata:
+  template: mcpdemo-servers@1.0.0
+services:
+  math-server:
+    project: .
+    language: python
+    host: containerapp
+    docker:
+      path: ./math.Dockerfile
+      context: .
+  weather-server:
+    project: .
+    language: python
+    host: containerapp
+    docker:
+      path: ./weather.Dockerfile
+      context: .
+  directory-server:
+    project: .
+    language: python
+    host: containerapp
+    docker:
+      path: ./directory.Dockerfile
+      context: .

@@ -46,4 +46,10 @@ def multipy_two_numbers(a: float, b: float) -> str:
 
 
 if __name__ == "__main__":
-   mcp.run()
+    import os
+    transport = os.getenv("TRANSPORT", "streamable-http")  # Default to streamable-http
+    
+    if transport == "http" or transport == "streamable-http":
+        mcp.run(transport="streamable-http")
+    else:
+        mcp.run(transport="stdio")

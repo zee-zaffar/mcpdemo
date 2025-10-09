@@ -1,5 +1,5 @@
 from mcp.server.fastmcp import FastMCP
-mcp = FastMCP("Weather MCP Server")
+mcp = FastMCP("Zee Weather MCP Server")
 
 @mcp.tool()
 def get_weather(location: str) -> str:
@@ -20,4 +20,10 @@ def get_weather(location: str) -> str:
     return mock_weather_data.get(location, "Location not found") 
 
 if __name__ == "__main__":
-    mcp.run()
+    import os
+    transport = os.getenv("TRANSPORT", "streamable-http")  # Default to streamable-http
+    
+    if transport == "http" or transport == "streamable-http":
+        mcp.run(transport="streamable-http")
+    else:
+        mcp.run(transport="stdio")
