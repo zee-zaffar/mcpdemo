@@ -78,7 +78,8 @@ jobs:
         sys.path.insert(0, 'src')
         from mcpdemo.math_server import mcp
         print('✅ Math MCP Server loaded successfully')
-        print('Available tools:', [tool.name for tool in mcp.tools])
+        print('Server name:', mcp.name)
+        print('Math server import test passed')
         "
     
     - name: Test ASGI app creation
