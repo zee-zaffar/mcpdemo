@@ -5,19 +5,30 @@ import sys
 # Add the src directory to Python path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
-# Simple weather MCP server
-app = FastMCP("Weather MCP Server")
+# Math MCP server
+app = FastMCP("Math MCP Server")
 
 @app.tool()
-def get_weather(location: str) -> str:
-    """Get weather for a location"""
-    weather_data = {
-        "New York": "Sunny, 75°F",
-        "Los Angeles": "Cloudy, 68°F", 
-        "Chicago": "Rainy, 60°F",
-        "Miami": "Sunny, 85°F"
-    }
-    return weather_data.get(location, "Location not found")
+def add(a: float, b: float) -> float:
+    """Add two numbers"""
+    return a + b
+
+@app.tool()
+def subtract(a: float, b: float) -> float:
+    """Subtract two numbers"""
+    return a - b
+
+@app.tool()
+def multiply(a: float, b: float) -> float:
+    """Multiply two numbers"""
+    return a * b
+
+@app.tool()
+def divide(a: float, b: float) -> float:
+    """Divide two numbers"""
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
 
 # Export ASGI app for gunicorn
 def create_asgi_app():
