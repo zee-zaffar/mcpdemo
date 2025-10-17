@@ -284,10 +284,7 @@ if __name__ == "__main__":
     transport = "streamable-http" 
     
     logger.info(f"Starting Zee Math MCP Server")
-    logger.info(f"Environment: {'Azure App Service' if is_azure else 'Local Development'}")
-    logger.info(f"Transport: {transport}")
-    logger.info(f"Tools available: 4 (add, subtract, multiply, divide)")
-    
+
     try:
         mcp.run(transport=transport)
     except Exception as e:
